@@ -1,0 +1,14 @@
+D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.csprojAssemblyReference.cache
+D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.Form1.resources
+D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.Properties.Resources.resources
+D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.csproj.GenerateResource.cache
+D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.csproj.CoreCompileInputs.cache
+D:\mini freshman\C#\stream\RTP\bin\Debug\RTP.exe.config
+D:\mini freshman\C#\stream\RTP\bin\Debug\RTP.exe
+D:\mini freshman\C#\stream\RTP\bin\Debug\RTP.pdb
+D:\mini freshman\C#\stream\RTP\bin\Debug\gio-sharp.dll
+D:\mini freshman\C#\stream\RTP\bin\Debug\glib-sharp.dll
+D:\mini freshman\C#\stream\RTP\bin\Debug\gstreamer-sharp.dll
+D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.csproj.CopyComplete
+D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.exe
+D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.pdb
