@@ -161,7 +161,7 @@ namespace RTP
             if (msg.Structure.Name == "tags-changed")
             {
                 // If the message is the "tags-changed" (only one we are currently issuing), update the stream info GUI
-                AnalyzeStreams();
+                //AnalyzeStreams();
             }
         }
 
@@ -178,41 +178,6 @@ namespace RTP
 
             //System.Threading.Thread.Sleep(10);
             mainLoop.Quit();
-        }
-
-        void AnalyzeStreams()
-        {
-            string str;
-
-            // read some properties
-            //int nVideo = (int)pipeline["n-video"];
-            //int nText = (int)pipeline["n-text"];
-
-            StringBuilder sb = new StringBuilder();
-
-            //for (int i = 0; i < nVideo; i++)
-            //{
-            //    // Retrieve the streams video tags
-            //    var tags = (TagList)pipeline.Emit("get-video-tags", i);
-            //    if (tags == null)
-            //        continue;
-            //    sb.AppendLine($"video stream {i}");
-            //    tags.GetString(Gst.Constants.TAG_VIDEO_CODEC, out str);
-            //    sb.AppendFormat("  codec {0}\n", str ?? "unknown");
-            //    ((Opaque)tags).Dispose();
-            //}
-            //for (int i = 0; i < nText; i++)
-            //{
-            //    var tags = (TagList)pipeline.Emit("get-text-tags", i);
-            //    if (tags == null)
-            //        continue;
-            //    sb.AppendLine($"subtitle stream {i}");
-            //    if (tags.GetString(Gst.Constants.TAG_LANGUAGE_CODE, out str))
-            //        sb.AppendLine($"  language: {str}");
-            //    ((Opaque)tags).Dispose();
-            //}
-            //if (mainLoop.IsRunning)
-            streamsList.Invoke((Action)(() => streamsList.Text = sb.ToString()));
         }
         #endregion
 

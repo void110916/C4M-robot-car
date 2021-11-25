@@ -205,6 +205,11 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void bindingSource1_CurrentChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (mainloop.IsRunning is true)

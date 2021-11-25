@@ -12,3 +12,17 @@ D:\mini freshman\C#\stream\RTP\bin\Debug\gstreamer-sharp.dll
 D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.csproj.CopyComplete
 D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.exe
 D:\mini freshman\C#\stream\RTP\obj\Debug\RTP.pdb
+D:\AVR\C4M-robot-car\stream\RTP\bin\Debug\RTP.exe.config
+D:\AVR\C4M-robot-car\stream\RTP\bin\Debug\RTP.exe
+D:\AVR\C4M-robot-car\stream\RTP\bin\Debug\RTP.pdb
+D:\AVR\C4M-robot-car\stream\RTP\bin\Debug\gio-sharp.dll
+D:\AVR\C4M-robot-car\stream\RTP\bin\Debug\glib-sharp.dll
+D:\AVR\C4M-robot-car\stream\RTP\bin\Debug\gstreamer-sharp.dll
+D:\AVR\C4M-robot-car\stream\RTP\obj\Debug\RTP.csproj.AssemblyReference.cache
+D:\AVR\C4M-robot-car\stream\RTP\obj\Debug\RTP.Form1.resources
+D:\AVR\C4M-robot-car\stream\RTP\obj\Debug\RTP.Properties.Resources.resources
+D:\AVR\C4M-robot-car\stream\RTP\obj\Debug\RTP.csproj.GenerateResource.cache
+D:\AVR\C4M-robot-car\stream\RTP\obj\Debug\RTP.csproj.CoreCompileInputs.cache
+D:\AVR\C4M-robot-car\stream\RTP\obj\Debug\RTP.csproj.CopyComplete
+D:\AVR\C4M-robot-car\stream\RTP\obj\Debug\RTP.exe
+D:\AVR\C4M-robot-car\stream\RTP\obj\Debug\RTP.pdb

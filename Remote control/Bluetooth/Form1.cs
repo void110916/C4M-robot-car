@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 
-
 namespace Bluetooth
 {
 
@@ -45,8 +44,8 @@ namespace Bluetooth
         bool isEntercsvFileName = false;
 
         bool isReceivingSensorData = false;
-        int sensorData=0;
-        int sensorData_counter=0;
+        int sensorData = 0;
+        int sensorData_counter = 0;
 
         class Canvas
         {
@@ -57,6 +56,23 @@ namespace Bluetooth
         Canvas sideView;
         Canvas topView;
 
+        Gst.Element videoSource_hand, rtpdepay_hand, decode_hand, videoSink_hand;
+        Gst.Element videoSource_body, rtpdepay_body, decode_body, videoSink_body;
+
+        GLib.MainLoop mainLoop_hand;
+        GLib.MainLoop mainLoop_body;
+        Thread glibThread_hand;
+        Thread glibThread_body;
+        uint refreshUiHandle_hand;
+        uint refreshUiHandle_body;
+        IntPtr videoPanelHandle_hand;
+        IntPtr videoPanelHandle_body;
+        Gst.Pipeline pipeline_hand = null;
+        Gst.Pipeline pipeline_body = null;
+
+        enum ConnectStatus { connect = 1, disconnect = 0 };
+        int connect_status_hand;
+        int connect_status_body;
 
         public Form1()
         {
@@ -69,6 +85,8 @@ namespace Bluetooth
             RefreshComport();
             update_textBox_value();
             update_Degree(trackBar_rotateArm.Value, trackBar_1stArm.Value, trackBar_2ndArm.Value, trackBar_3rdArm.Value, trackBar_hand.Value, trackBar_cargo.Value);
+
+            gstreamer_init();
         }
 
         private void DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -396,6 +414,15 @@ namespace Bluetooth
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             close_comPort();
+
+            GLib.Timeout.Remove(refreshUiHandle_body);
+            GLib.Timeout.Remove(refreshUiHandle_hand);
+            pipeline_hand.SetState(Gst.State.Ready);
+            pipeline_body.SetState(Gst.State.Ready);
+            pipeline_hand.SetState(Gst.State.Null);
+            pipeline_body.SetState(Gst.State.Null);
+            mainLoop_hand.Quit();
+            mainLoop_body.Quit();
         }
 
         private void RefreshComport()
@@ -959,6 +986,184 @@ namespace Bluetooth
                     textBox_FileName.Text = string.Empty;
                     textBox_FilePath.Text = string.Empty;
                     textBox_data_num.Text = string.Empty;
+                }
+            }
+        }
+
+        private void gstreamer_init()
+        {
+            Gst.Application.Init();
+            GtkSharp.GstreamerSharp.ObjectManager.Initialize();
+
+            videoPanel_body.HandleCreated += HandleRealized_body;
+            InitGStreamerPipeline_body();
+
+            videoPanel_hand.HandleCreated += HandleRealized_hand;
+            InitGStreamerPipeline_hand();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (mainLoop_hand.IsRunning is true)
+                mainLoop_hand.Quit();
+
+            if (mainLoop_body.IsRunning is true)
+                mainLoop_body.Quit();
+        }
+
+        void HandleRealized_hand(object sender, System.EventArgs e)
+        {
+            var vpanel = sender as Panel;
+            videoPanelHandle_hand = vpanel.Handle;
+
+            Gst.Element overlay = ((Gst.Bin)pipeline_hand).GetByInterface(Gst.Video.VideoOverlayAdapter.GType);
+            Gst.Video.VideoOverlayAdapter adapter = new Gst.Video.VideoOverlayAdapter(overlay.Handle);
+
+            adapter.HandleEvents(true);
+            adapter.WindowHandle = videoPanelHandle_hand;
+        }
+
+        void HandleRealized_body(object sender, System.EventArgs e)
+        {
+            var vpanel = sender as Panel;
+            videoPanelHandle_body = vpanel.Handle;
+
+            Gst.Element overlay = ((Gst.Bin)pipeline_body).GetByInterface(Gst.Video.VideoOverlayAdapter.GType);
+            Gst.Video.VideoOverlayAdapter adapter = new Gst.Video.VideoOverlayAdapter(overlay.Handle);
+
+            adapter.HandleEvents(true);
+            adapter.WindowHandle = videoPanelHandle_body;
+        }
+
+        void InitGStreamerPipeline_hand()
+        {
+            mainLoop_hand = new GLib.MainLoop();
+            glibThread_hand = new System.Threading.Thread(mainLoop_hand.Run);
+            glibThread_hand.Start();
+
+            // Create the elements
+            videoSource_hand = Gst.ElementFactory.Make("udpsrc", "udpsrc_hand");
+            rtpdepay_hand = Gst.ElementFactory.Make("rtph264depay", "filter_hand");
+            decode_hand = Gst.ElementFactory.Make("avdec_h264", "decode_hand");
+            videoSink_hand = Gst.ElementFactory.Make("autovideosink", "autovideosink_hand");
+            pipeline_hand = new Gst.Pipeline("mainpipe_hand");
+            if (pipeline_hand == null)
+            {
+                System.Diagnostics.Debug.WriteLine("Not all elements could be created");
+                return;
+            }
+            pipeline_hand.Add(videoSource_hand, rtpdepay_hand, decode_hand, videoSink_hand);
+            if (!videoSource_hand.Link(rtpdepay_hand))
+                System.Diagnostics.Debug.WriteLine("Cannot link elements videoSink, rtpdepay");
+            if (!rtpdepay_hand.Link(decode_hand))
+                System.Diagnostics.Debug.WriteLine("Cannot link elements videoSink, rtpdepay");
+            if (!decode_hand.Link(videoSink_hand))
+                System.Diagnostics.Debug.WriteLine("Cannot link elements videoSink, rtpdepay");
+
+            var s = videoSource_hand.GetProperty("caps");
+            videoSource_hand.SetProperty("port", new GLib.Value(8787));
+            s = videoSource_hand.GetProperty("port");
+
+            videoSource_hand.SetProperty("caps", new GLib.Value(Gst.Global.CapsFromString(@"application/x-rtp, media=video, clock-rate=90000, encoding-name=H264, payload=96")));
+            s = videoSource_hand.GetProperty("caps");
+
+            pipeline_hand.SetState(Gst.State.Null);
+            pipeline_hand.SetState(Gst.State.Ready);
+        }
+
+        void InitGStreamerPipeline_body()
+        {
+            mainLoop_body = new GLib.MainLoop();
+            glibThread_body = new System.Threading.Thread(mainLoop_body.Run);
+            glibThread_body.Start();
+
+            // Create the elements
+            videoSource_body = Gst.ElementFactory.Make("udpsrc", "udpsrc_body");
+            rtpdepay_body = Gst.ElementFactory.Make("rtph264depay", "filter_body");
+            decode_body = Gst.ElementFactory.Make("avdec_h264", "decode_body");
+            videoSink_body = Gst.ElementFactory.Make("autovideosink", "autovideosink_body");
+            pipeline_body = new Gst.Pipeline("mainpipe");
+            if (pipeline_body == null)
+            {
+                System.Diagnostics.Debug.WriteLine("Not all elements could be created");
+                return;
+            }
+            pipeline_body.Add(videoSource_body, rtpdepay_body, decode_body, videoSink_body);
+            if (!videoSource_body.Link(rtpdepay_body))
+                System.Diagnostics.Debug.WriteLine("Cannot link elements videoSink, rtpdepay");
+            if (!rtpdepay_body.Link(decode_body))
+                System.Diagnostics.Debug.WriteLine("Cannot link elements videoSink, rtpdepay");
+            if (!decode_body.Link(videoSink_body))
+                System.Diagnostics.Debug.WriteLine("Cannot link elements videoSink, rtpdepay");
+
+            var s = videoSource_body.GetProperty("caps");
+            videoSource_body.SetProperty("port", new GLib.Value(8686));
+            s = videoSource_body.GetProperty("port");
+
+            videoSource_body.SetProperty("caps", new GLib.Value(Gst.Global.CapsFromString(@"application/x-rtp, media=video, clock-rate=90000, encoding-name=H264, payload=96")));
+            s = videoSource_body.GetProperty("caps");
+
+            pipeline_body.SetState(Gst.State.Null);
+            pipeline_body.SetState(Gst.State.Ready);
+        }
+
+
+        private void btn_body_camera_connection_Click(object sender, EventArgs e)
+        {
+            if (connect_status_body > 0)    //connect
+            {
+                textBox_body_camera_IP.ReadOnly = false;
+                btn_body_camera_connection.Text = "disconnected";
+                btn_body_camera_connection.ForeColor = Color.Red;
+                connect_status_body = (int)ConnectStatus.disconnect;
+                var ret = pipeline_body.SetState(Gst.State.Paused);
+                if (ret == Gst.StateChangeReturn.Failure)
+                {
+                    System.Diagnostics.Debug.WriteLine("Unable to set the pipeline to the playing state.");
+                    return;
+                }
+            }
+            else
+            {                       //disconnect
+                textBox_body_camera_IP.ReadOnly = true;
+                btn_body_camera_connection.Text = "connected";
+                btn_body_camera_connection.ForeColor = Color.SeaGreen;
+                connect_status_body = (int)ConnectStatus.connect;
+                var ret = pipeline_body.SetState(Gst.State.Playing);
+                if (ret == Gst.StateChangeReturn.Failure)
+                {
+                    System.Diagnostics.Debug.WriteLine("Unable to set the pipeline to the playing state.");
+                    return;
+                }
+            }
+        }
+
+        private void btn_hand_camera_connection_Click(object sender, EventArgs e)
+        {
+            if (connect_status_hand > 0)    //connect
+            {
+                textBox_hand_camera_IP.ReadOnly = false;
+                btn_hand_camera_connection.Text = "disconnected";
+                btn_hand_camera_connection.ForeColor = Color.Red;
+                connect_status_hand = (int)ConnectStatus.disconnect;
+                var ret = pipeline_hand.SetState(Gst.State.Paused);
+                if (ret == Gst.StateChangeReturn.Failure)
+                {
+                    System.Diagnostics.Debug.WriteLine("Unable to set the pipeline to the playing state.");
+                    return;
+                }
+            }
+            else
+            {                       //disconnect
+                textBox_hand_camera_IP.ReadOnly = true;
+                btn_hand_camera_connection.Text = "connected";
+                btn_hand_camera_connection.ForeColor = Color.SeaGreen;
+                connect_status_hand = (int)ConnectStatus.connect;
+                var ret = pipeline_hand.SetState(Gst.State.Playing);
+                if (ret == Gst.StateChangeReturn.Failure)
+                {
+                    System.Diagnostics.Debug.WriteLine("Unable to set the pipeline to the playing state.");
+                    return;
                 }
             }
         }
