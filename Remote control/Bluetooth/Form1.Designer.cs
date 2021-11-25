@@ -89,24 +89,6 @@ namespace Bluetooth
             this.Sensor_left_front_left = new System.Windows.Forms.Button();
             this.Sensor_right_front_right = new System.Windows.Forms.Button();
             this.btn_ResetArm = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_Create = new System.Windows.Forms.Button();
-            this.btn_choseSaveFile = new System.Windows.Forms.Button();
-            this.textBox_createFileName = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btn_saveData = new System.Windows.Forms.Button();
-            this.btn_delData = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox_FileName = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox_FilePath = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox_data_num = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.label39 = new System.Windows.Forms.Label();
@@ -146,6 +128,25 @@ namespace Bluetooth
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.btn_chooseActionListFolder = new System.Windows.Forms.Button();
             this.textBox_ActionListFolder = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox_data_num = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox_FilePath = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox_FileName = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btn_delData = new System.Windows.Forms.Button();
+            this.btn_saveData = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox_createFileName = new System.Windows.Forms.TextBox();
+            this.btn_choseSaveFile = new System.Windows.Forms.Button();
+            this.btn_Create = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label40 = new System.Windows.Forms.Label();
             this.groupBox_connect.SuspendLayout();
             this.groupBox_control.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_rotateArm)).BeginInit();
@@ -156,10 +157,6 @@ namespace Bluetooth
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_1stArm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_hand)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -169,6 +166,10 @@ namespace Bluetooth
             this.groupBox8.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox14.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_open
@@ -918,217 +919,6 @@ namespace Bluetooth
             this.btn_ResetArm.UseVisualStyleBackColor = true;
             this.btn_ResetArm.Click += new System.EventHandler(this.btn_ResetArm_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.groupBox6);
-            this.groupBox3.Controls.Add(this.groupBox5);
-            this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox3.Location = new System.Drawing.Point(43, 802);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(1803, 428);
-            this.groupBox3.TabIndex = 41;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Save Data";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.btn_delete);
-            this.groupBox6.Controls.Add(this.btn_Create);
-            this.groupBox6.Controls.Add(this.btn_choseSaveFile);
-            this.groupBox6.Controls.Add(this.textBox_createFileName);
-            this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Controls.Add(this.label11);
-            this.groupBox6.Location = new System.Drawing.Point(56, 45);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox6.Size = new System.Drawing.Size(635, 360);
-            this.groupBox6.TabIndex = 15;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "File";
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Location = new System.Drawing.Point(35, 212);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(165, 100);
-            this.btn_delete.TabIndex = 11;
-            this.btn_delete.TabStop = false;
-            this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click_1);
-            // 
-            // btn_Create
-            // 
-            this.btn_Create.Location = new System.Drawing.Point(35, 65);
-            this.btn_Create.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Create.Name = "btn_Create";
-            this.btn_Create.Size = new System.Drawing.Size(165, 100);
-            this.btn_Create.TabIndex = 7;
-            this.btn_Create.TabStop = false;
-            this.btn_Create.Text = "Create";
-            this.btn_Create.UseVisualStyleBackColor = true;
-            this.btn_Create.Click += new System.EventHandler(this.btn_Create_Click);
-            // 
-            // btn_choseSaveFile
-            // 
-            this.btn_choseSaveFile.Location = new System.Drawing.Point(235, 212);
-            this.btn_choseSaveFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_choseSaveFile.Name = "btn_choseSaveFile";
-            this.btn_choseSaveFile.Size = new System.Drawing.Size(368, 100);
-            this.btn_choseSaveFile.TabIndex = 0;
-            this.btn_choseSaveFile.TabStop = false;
-            this.btn_choseSaveFile.Text = "Choose";
-            this.btn_choseSaveFile.UseVisualStyleBackColor = true;
-            this.btn_choseSaveFile.Click += new System.EventHandler(this.btn_choseFile_Click);
-            // 
-            // textBox_createFileName
-            // 
-            this.textBox_createFileName.Location = new System.Drawing.Point(291, 122);
-            this.textBox_createFileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_createFileName.Name = "textBox_createFileName";
-            this.textBox_createFileName.Size = new System.Drawing.Size(236, 47);
-            this.textBox_createFileName.TabIndex = 8;
-            this.textBox_createFileName.TabStop = false;
-            this.textBox_createFileName.Leave += new System.EventHandler(this.textBox_createFileName_Leave);
-            this.textBox_createFileName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox_createFileName_MouseDown);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(533, 128);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 38);
-            this.label12.TabIndex = 10;
-            this.label12.Text = ".csv";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(227, 65);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(158, 38);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "FileName:";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.btn_saveData);
-            this.groupBox5.Controls.Add(this.btn_delData);
-            this.groupBox5.Location = new System.Drawing.Point(723, 45);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(259, 360);
-            this.groupBox5.TabIndex = 14;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "single Data";
-            // 
-            // btn_saveData
-            // 
-            this.btn_saveData.Location = new System.Drawing.Point(45, 88);
-            this.btn_saveData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_saveData.Name = "btn_saveData";
-            this.btn_saveData.Size = new System.Drawing.Size(165, 100);
-            this.btn_saveData.TabIndex = 2;
-            this.btn_saveData.TabStop = false;
-            this.btn_saveData.Text = "Save";
-            this.btn_saveData.UseVisualStyleBackColor = true;
-            this.btn_saveData.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // btn_delData
-            // 
-            this.btn_delData.Location = new System.Drawing.Point(45, 235);
-            this.btn_delData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_delData.Name = "btn_delData";
-            this.btn_delData.Size = new System.Drawing.Size(165, 100);
-            this.btn_delData.TabIndex = 3;
-            this.btn_delData.TabStop = false;
-            this.btn_delData.Text = "Delete";
-            this.btn_delData.UseVisualStyleBackColor = true;
-            this.btn_delData.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.textBox_FileName);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.textBox_FilePath);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.textBox_data_num);
-            this.groupBox4.Location = new System.Drawing.Point(1016, 45);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(757, 360);
-            this.groupBox4.TabIndex = 13;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "File Info";
-            // 
-            // textBox_FileName
-            // 
-            this.textBox_FileName.Location = new System.Drawing.Point(219, 188);
-            this.textBox_FileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_FileName.Name = "textBox_FileName";
-            this.textBox_FileName.ReadOnly = true;
-            this.textBox_FileName.Size = new System.Drawing.Size(511, 47);
-            this.textBox_FileName.TabIndex = 14;
-            this.textBox_FileName.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(48, 88);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(144, 38);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "File Path:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(24, 190);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(166, 38);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "File Name:";
-            // 
-            // textBox_FilePath
-            // 
-            this.textBox_FilePath.Location = new System.Drawing.Point(219, 55);
-            this.textBox_FilePath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_FilePath.Multiline = true;
-            this.textBox_FilePath.Name = "textBox_FilePath";
-            this.textBox_FilePath.ReadOnly = true;
-            this.textBox_FilePath.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_FilePath.Size = new System.Drawing.Size(511, 99);
-            this.textBox_FilePath.TabIndex = 12;
-            this.textBox_FilePath.TabStop = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(19, 278);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(173, 38);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Data_Num:";
-            // 
-            // textBox_data_num
-            // 
-            this.textBox_data_num.Location = new System.Drawing.Point(219, 275);
-            this.textBox_data_num.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_data_num.Name = "textBox_data_num";
-            this.textBox_data_num.ReadOnly = true;
-            this.textBox_data_num.Size = new System.Drawing.Size(132, 47);
-            this.textBox_data_num.TabIndex = 5;
-            this.textBox_data_num.TabStop = false;
-            this.textBox_data_num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.groupBox15);
@@ -1600,12 +1390,234 @@ namespace Bluetooth
             this.textBox_ActionListFolder.TabIndex = 3;
             this.textBox_ActionListFolder.TabStop = false;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBox_FileName);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.textBox_FilePath);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.textBox_data_num);
+            this.groupBox4.Location = new System.Drawing.Point(1016, 45);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(757, 360);
+            this.groupBox4.TabIndex = 13;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "File Info";
+            // 
+            // textBox_data_num
+            // 
+            this.textBox_data_num.Location = new System.Drawing.Point(219, 275);
+            this.textBox_data_num.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_data_num.Name = "textBox_data_num";
+            this.textBox_data_num.ReadOnly = true;
+            this.textBox_data_num.Size = new System.Drawing.Size(132, 47);
+            this.textBox_data_num.TabIndex = 5;
+            this.textBox_data_num.TabStop = false;
+            this.textBox_data_num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 278);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(173, 38);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Data_Num:";
+            // 
+            // textBox_FilePath
+            // 
+            this.textBox_FilePath.Location = new System.Drawing.Point(219, 55);
+            this.textBox_FilePath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_FilePath.Multiline = true;
+            this.textBox_FilePath.Name = "textBox_FilePath";
+            this.textBox_FilePath.ReadOnly = true;
+            this.textBox_FilePath.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox_FilePath.Size = new System.Drawing.Size(511, 99);
+            this.textBox_FilePath.TabIndex = 12;
+            this.textBox_FilePath.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(24, 190);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(166, 38);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "File Name:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(48, 88);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(144, 38);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "File Path:";
+            // 
+            // textBox_FileName
+            // 
+            this.textBox_FileName.Location = new System.Drawing.Point(219, 188);
+            this.textBox_FileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_FileName.Name = "textBox_FileName";
+            this.textBox_FileName.ReadOnly = true;
+            this.textBox_FileName.Size = new System.Drawing.Size(511, 47);
+            this.textBox_FileName.TabIndex = 14;
+            this.textBox_FileName.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btn_saveData);
+            this.groupBox5.Controls.Add(this.btn_delData);
+            this.groupBox5.Location = new System.Drawing.Point(723, 45);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Size = new System.Drawing.Size(259, 360);
+            this.groupBox5.TabIndex = 14;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "single Data";
+            // 
+            // btn_delData
+            // 
+            this.btn_delData.Location = new System.Drawing.Point(45, 235);
+            this.btn_delData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_delData.Name = "btn_delData";
+            this.btn_delData.Size = new System.Drawing.Size(165, 100);
+            this.btn_delData.TabIndex = 3;
+            this.btn_delData.TabStop = false;
+            this.btn_delData.Text = "Delete";
+            this.btn_delData.UseVisualStyleBackColor = true;
+            this.btn_delData.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
+            // btn_saveData
+            // 
+            this.btn_saveData.Location = new System.Drawing.Point(45, 88);
+            this.btn_saveData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_saveData.Name = "btn_saveData";
+            this.btn_saveData.Size = new System.Drawing.Size(165, 100);
+            this.btn_saveData.TabIndex = 2;
+            this.btn_saveData.TabStop = false;
+            this.btn_saveData.Text = "Save";
+            this.btn_saveData.UseVisualStyleBackColor = true;
+            this.btn_saveData.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btn_delete);
+            this.groupBox6.Controls.Add(this.btn_Create);
+            this.groupBox6.Controls.Add(this.btn_choseSaveFile);
+            this.groupBox6.Controls.Add(this.textBox_createFileName);
+            this.groupBox6.Controls.Add(this.label12);
+            this.groupBox6.Controls.Add(this.label11);
+            this.groupBox6.Location = new System.Drawing.Point(56, 45);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox6.Size = new System.Drawing.Size(635, 360);
+            this.groupBox6.TabIndex = 15;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "File";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(227, 65);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 38);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "FileName:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(533, 128);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(68, 38);
+            this.label12.TabIndex = 10;
+            this.label12.Text = ".csv";
+            // 
+            // textBox_createFileName
+            // 
+            this.textBox_createFileName.Location = new System.Drawing.Point(291, 122);
+            this.textBox_createFileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_createFileName.Name = "textBox_createFileName";
+            this.textBox_createFileName.Size = new System.Drawing.Size(236, 47);
+            this.textBox_createFileName.TabIndex = 8;
+            this.textBox_createFileName.TabStop = false;
+            this.textBox_createFileName.Leave += new System.EventHandler(this.textBox_createFileName_Leave);
+            this.textBox_createFileName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox_createFileName_MouseDown);
+            // 
+            // btn_choseSaveFile
+            // 
+            this.btn_choseSaveFile.Location = new System.Drawing.Point(235, 212);
+            this.btn_choseSaveFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_choseSaveFile.Name = "btn_choseSaveFile";
+            this.btn_choseSaveFile.Size = new System.Drawing.Size(368, 100);
+            this.btn_choseSaveFile.TabIndex = 0;
+            this.btn_choseSaveFile.TabStop = false;
+            this.btn_choseSaveFile.Text = "Choose";
+            this.btn_choseSaveFile.UseVisualStyleBackColor = true;
+            this.btn_choseSaveFile.Click += new System.EventHandler(this.btn_choseFile_Click);
+            // 
+            // btn_Create
+            // 
+            this.btn_Create.Location = new System.Drawing.Point(35, 65);
+            this.btn_Create.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Create.Name = "btn_Create";
+            this.btn_Create.Size = new System.Drawing.Size(165, 100);
+            this.btn_Create.TabIndex = 7;
+            this.btn_Create.TabStop = false;
+            this.btn_Create.Text = "Create";
+            this.btn_Create.UseVisualStyleBackColor = true;
+            this.btn_Create.Click += new System.EventHandler(this.btn_Create_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Location = new System.Drawing.Point(35, 212);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(165, 100);
+            this.btn_delete.TabIndex = 11;
+            this.btn_delete.TabStop = false;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click_1);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.groupBox6);
+            this.groupBox3.Controls.Add(this.groupBox5);
+            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox3.Location = new System.Drawing.Point(43, 802);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(1803, 428);
+            this.groupBox3.TabIndex = 41;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Save Data";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label40.Location = new System.Drawing.Point(167, 605);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(295, 50);
+            this.label40.TabIndex = 44;
+            this.label40.Text = "Debug version";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(3400, 1702);
+            this.Controls.Add(this.label40);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox3);
@@ -1636,12 +1648,6 @@ namespace Bluetooth
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_hand)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
@@ -1658,7 +1664,14 @@ namespace Bluetooth
             this.groupBox12.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1711,24 +1724,6 @@ namespace Bluetooth
         private OpenTK.GLControl glControl_topView;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btn_delData;
-        private System.Windows.Forms.Button btn_saveData;
-        private System.Windows.Forms.Button btn_choseSaveFile;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox_data_num;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox_createFileName;
-        private System.Windows.Forms.Button btn_Create;
-        private System.Windows.Forms.TextBox textBox_FilePath;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox_FileName;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
@@ -1779,6 +1774,25 @@ namespace Bluetooth
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button Sensor_hand_front;
         private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox textBox_FileName;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox_FilePath;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox_data_num;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btn_saveData;
+        private System.Windows.Forms.Button btn_delData;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.Button btn_Create;
+        private System.Windows.Forms.Button btn_choseSaveFile;
+        private System.Windows.Forms.TextBox textBox_createFileName;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label40;
     }
 }
 
