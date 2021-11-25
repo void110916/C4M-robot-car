@@ -7,7 +7,10 @@ using System.Threading;
 using System.Windows.Forms;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
-
+//using Gst;
+//using GLib;
+using Gst.Video;
+using GtkSharp;
 namespace Bluetooth
 {
 
@@ -61,8 +64,8 @@ namespace Bluetooth
 
         GLib.MainLoop mainLoop_hand;
         GLib.MainLoop mainLoop_body;
-        Thread glibThread_hand;
-        Thread glibThread_body;
+        System.Threading.Thread glibThread_hand;
+        System.Threading.Thread glibThread_body;
         uint refreshUiHandle_hand;
         uint refreshUiHandle_body;
         IntPtr videoPanelHandle_hand;
@@ -77,6 +80,7 @@ namespace Bluetooth
         public Form1()
         {
             InitializeComponent();
+            gstreamer_init();
             Init_canvas();
         }
 
@@ -86,7 +90,7 @@ namespace Bluetooth
             update_textBox_value();
             update_Degree(trackBar_rotateArm.Value, trackBar_1stArm.Value, trackBar_2ndArm.Value, trackBar_3rdArm.Value, trackBar_hand.Value, trackBar_cargo.Value);
 
-            gstreamer_init();
+            
         }
 
         private void DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -1010,6 +1014,8 @@ namespace Bluetooth
             if (mainLoop_body.IsRunning is true)
                 mainLoop_body.Quit();
         }
+
+
 
         void HandleRealized_hand(object sender, System.EventArgs e)
         {
